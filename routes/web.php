@@ -32,7 +32,7 @@ Route::get('/world', function () {
    });
 
 Route::get('/greeting', function () {
-    return view('hello', ['name' => 'Gheriya']);
+    return view('blog.hello', ['name' => 'Gheriya']);
     });
     
 
