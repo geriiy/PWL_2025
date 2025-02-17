@@ -26,14 +26,15 @@ Route::get('/', HomeController::class);
 Route::get('/about', AboutController::class);
 Route::get('/articles/{id}', ArticleController::class);
 Route::resource('photos', PhotoController::class);
+Route::get('/greeting', [WelcomeController::class,'greeting']);
+
 
 Route::get('/world', function () {
     return 'World';
    });
 
-Route::get('/greeting', function () {
-    return view('blog.hello', ['name' => 'Gheriya']);
-    });
+
+   
     
 
 
