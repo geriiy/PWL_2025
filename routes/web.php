@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,20 +16,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/hello', [WelcomeController::class, 'hello']);
+Route::get('/', [PageController::class, 'home']);
+Route::get('/about', [PageController::class, 'about']);
+Route::get('/articles/{id}', [PageController::class, 'articles']);
 
 Route::get('/world', function () {
     return 'World';
    });
-   
-Route::get('/', function () {
-    return 'Selamat Datang';
-   });
 
-Route::get('/about', function () {
-    $nama = 'Gheriya';
-    $nim = '2341720109';
-    return "<p>Nama: $nama</p><p>NIM: $nim</p>";
-});
+
 
 // Route::get('/user/{name}', function ($name) {
     
@@ -40,10 +36,7 @@ Route::get('/posts/{post}/comments/{comment}', function
      return 'Pos ke-'.$postId." Komentar ke-: ".$commentId;
     });
 
-Route::get('/articles/{id}', function
-    ($articleId) {
-     return 'Halaman Artikel dengan ID '.$articleId;
-    });
+
 
 Route::get('/user/{name?}', function ($name='John') {
     return 'Nama saya '.$name;
